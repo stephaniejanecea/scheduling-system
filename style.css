@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f6f8;
+    color: #2d3436;
+}
+
+nav {
+    background-color: #2980b9;
+    padding: 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#nav-left {
+    display: flex;
+    align-items: center;
+}
+
+#logout {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    display: none; /* hide by default */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#logout:hover {
+    background-color: white;
+    color: #34495e;
+}
+
+
+nav button {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav button:hover {
+    background-color: white;
+    color: #34495e; /* Matches the nav bar color */
+}
+
+#lobby {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 200px;
+    gap: 10px;
+    padding: 10px;
+}
+
+.school-logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+@keyframes fadeInSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animated-logo,
+.animated-title {
+    opacity: 0;
+    animation: fadeInSlide 1s ease-out forwards;
+}
+
+.animated-logo {
+    animation-delay: 0.2s;
+}
+
+.animated-title {
+    animation-delay: 0.5s;
+}
+
+#lobby {
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: #2c3e50;
+    text-align: center;
+}
+
+#addPage, #assessmentPage, #viewAllSched {
+    display: none;
+    padding: 32px;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+    margin: 30px auto;
+    width: 90%;
+    max-width: 900px;
+}
+
+#viewAllSched button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: auto;
+    display: inline-block;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.error {
+    color: #e74c3c;
+    font-size: 0.9em;
+    margin-top: 4px;
+}
+
+button.btn {
+    background-color: #3498db;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+button.btn:hover {
+    background-color: #2980b9;
+}
+
+select, input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+#assignedSched table,
+#schedule-output table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#assignedSched th, #assignedSched td,
+#schedule-output th, #schedule-output td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+#assignedSched th,
+#schedule-output th {
+    background-color: #ecf0f1;
+    color: #2c3e50;
+}
+
+#viewAllSched label[for="year-level"] {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #2d3436;
+}
+
+#year-level {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 6px;
+}
+
+@media (max-width: 600px) {
+
+    #viewAllSched button {
+        width: 100%;
+        margin-right: 0;
+        display: block;
+    }
+    nav {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    #lobby {
+        margin-top: 80px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    button.btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .input-group label,
+    .input-group input {
+        font-size: 0.9em;
+    }
+
+    table {
+        font-size: 0.85em;
+    }
+
+    #assignedSched table,
+    #schedule-output table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    #viewAllSched button {
+        width: 100%;
+    }
+}

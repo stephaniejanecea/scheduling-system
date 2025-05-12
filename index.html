@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Scheduling System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav><button id="logout">Log out</button></nav>
+
+  <div id="lobby">
+    <img src="NewPSUlogo.png" alt="School Logo" class="school-logo animated-logo" />
+<h2 class="animated-title">University Scheduling System</h2>
+    <button id="addStudent" class="btn">Login</button>
+    <button id="viewSchedule" class="btn">View Schedule</button>
+  </div>
+
+  <div id="addPage">
+    <div class="input-group">
+      <label for="name">Name:</label>
+      <input type="text" id="nameInput" name="name" autocomplete="off" required />
+      <span id="nameError" class="error"></span>
+    </div>
+    <div class="input-group">
+      <label for="idNum">Student Number:</label>
+      <input type="number" id="idNumInput" name="idNum" autocomplete="off" required />
+      <span id="idNumError" class="error"></span>
+    </div>
+    <div class="input-group">
+      <label for="yearLvl">Year Level:</label>
+      <input type="number" id="yearLvlInput" name="yearLvl" autocomplete="off" min="1" max="4" required />
+      <span id="yearLvlError" class="error"></span>
+    </div>
+    <button id="generateSchedule" class="btn">Generate</button>
+  </div>
+
+  <div id="assessmentPage">
+    <h2>Your Schedule</h2>
+    <div class="student-info">
+      <p><strong>Name:</strong> <span id="displayName"></span></p>
+      <p><strong>Student Number:</strong> <span id="displayIdNum"></span></p>
+      <p><strong>Year Level:</strong> <span id="displayYearLvl"></span></p>
+      <p><strong>Section:</strong> <span id="displaySection"></span></p>
+    </div>
+    <div id="assignedSched"></div>
+  </div>
+
+  <div id="viewAllSched">
+    <button id="back" class="btn">Back</button>
+    <button id="generate-btn" class="btn">Generate All Schedules</button>
+    <button id="reset-btn" class="btn">Reset All Schedules</button>
+    <button id="reset-students-btn" class="btn">Reset All Students</button>
+
+    <label for="year-level">Select Year Level:</label>
+    <select id="year-level">
+      <option value="all">All Year Levels</option>
+      <option value="1st Year">1st Year</option>
+      <option value="2nd Year">2nd Year</option>
+      <option value="3rd Year">3rd Year</option>
+      <option value="4th Year">4th Year</option>
+    </select>
+
+    <div id="schedule-output"></div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById("reset-students-btn").addEventListener("click", () => {
+      if (confirm("Are you sure you want to delete all student records?")) {
+        localStorage.removeItem("studentRecords");
+        localStorage.removeItem("sectionCounts");
+        alert("Student records cleared.");
+        location.reload();
+      }
+    });
+  </script>
+</body>
+</html>
